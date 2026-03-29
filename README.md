@@ -175,19 +175,3 @@ Contributions are welcome! Please follow these guidelines:
 5. Open a Pull Request
 
 ---
-
-## 📄 License
-
-MIT License © Daniel Lopez
-
-See [LICENSE](LICENSE) for details.
-
----
-
-## 👤 Author
-
-**Daniel Lopez**
-
-Email: daniellopezorta39@gmail.com
-
-GitHub: [daniellopez882](https://github.com/daniellopez882)
