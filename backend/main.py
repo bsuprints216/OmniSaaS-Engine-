@@ -5,12 +5,28 @@ import datetime
 from .ai_engine import ai_engine
 import random
 import asyncio
+import time
+import logging
+
+# Professional Logging Configuration
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("OmniSaaS")
 
 app = FastAPI(
     title="OmniSaaS Engine API", 
     description="Enterprise-grade AI-powered Analytics and Automation Engine",
     version="1.0.0"
 )
+
+# Expert Middleware: Audit & Performance Monitoring
+@app.middleware("http")
+async def audit_middleware(request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = (time.time() - start_time) * 1000
+    logger.info(f"AUDIT: {request.method} {request.url.path} | Time: {process_time:.2f}ms | Status: {response.status_code}")
+    response.headers["X-Process-Time"] = str(process_time)
+    return response
 
 # Set up CORS for frontend
 app.add_middleware(
